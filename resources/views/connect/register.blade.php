@@ -17,14 +17,14 @@
 	<div class="input-group">
 
 		<div class="input-group-text"><i class="fas fa-user"></i></div>
-	{!! Form::text('name', null, ['class' => 'form-control']) !!}
+	{!! Form::text('name', null, ['class' => 'form-control', 'required']) !!}
 	</div>
 
 	<label for="lastname" class="mtop16">Apellido:</label>
 	<div class="input-group">
 
 		<div class="input-group-text"><i class="fas fa-user-tag"></i></div>
-	{!! Form::text('lastname', null, ['class' => 'form-control']) !!}
+	{!! Form::text('lastname', null, ['class' => 'form-control', 'required']) !!}
 	</div>
 
 
@@ -32,21 +32,21 @@
 	<div class="input-group">
 
 		<div class="input-group-text"><i class="far fa-envelope-open"></i></div>
-	{!! Form::text('email', null, ['class' => 'form-control']) !!}
+	{!! Form::text('email', null, ['class' => 'form-control', 'required']) !!}
 	</div>
 
 	<label for="password" class="mtop16">Contraseña:</label>
 	<div class="input-group">
 
 		<div class="input-group-text"><i class="fas fa-key"></i></div>
-	{!! Form::password('password', ['class' => 'form-control']) !!}
+	{!! Form::password('password', ['class' => 'form-control', 'required']) !!}
 	</div>
 
 	<label for="cpassword" class="mtop16">Confirmar contraseña:</label>
 	<div class="input-group">
 
 		<div class="input-group-text"><i class="fas fa-key"></i></div>
-	{!! Form::password('cpassword', ['class' => 'form-control']) !!}
+	{!! Form::password('cpassword', ['class' => 'form-control', 'required']) !!}
 	</div>
 
 	{!! Form::submit('Registrarse', ['class' => 'btn btn-success mtop16'])!!}
@@ -54,7 +54,7 @@
 
 	@if(Session::has('message'))
 		<div class="container">           
-		<div class="alert alert-danger{{ Session::get('typealert') }} mtop16" style="display:block; margin-bottom: 16px;"> 
+		<div class="alert alert-{{ Session::get('typealert') }} mtop16" style="display:block; margin-bottom: 16px;"> 
 			{{ Session::get('message') }}
 			@if ($errors->any())       
 			<ul>

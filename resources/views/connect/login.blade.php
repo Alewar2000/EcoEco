@@ -30,7 +30,7 @@
 
 	@if(Session::has('message'))
 		<div class="container">           
-		<div class="alert alert-danger{{ Session::get('typealert') }} mtop16" style="display:block; margin-bottom: 16px;"> 
+		<div class="alert alert-{{ Session::get('typealert') }} mtop16" style="display:block; margin-bottom: 16px;"> 
 			{{ Session::get('message') }}
 			@if ($errors->any())       
 			<ul>
