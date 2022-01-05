@@ -20,6 +20,10 @@
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+		<script src="{{url('static/libs/ckeditor/ckeditor.js')}}"></script>
+
+		<script src="{{url('static/js/admin.js')}}"></script>
+
 
 	</head>
 	<body>
@@ -32,7 +36,7 @@
 						<ul class="navbar-nav">
 							<li class="nav-item">
 								<a href="{{url('/admin')}}" class="nav-link">
-									<i class="fas fa-home">Dashboard</i>
+									<i class="fas fa-home"></i>Dashboard
 								</a>
 							</li>
 						</ul>
@@ -44,10 +48,9 @@
 						<nav aria-label="breadcrumb shadow">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
-									<a href="{{url( '/admin') }}"><i class="fas fa-home">Dashboard</i></a>
+									<a href="{{url( '/admin') }}"><i class="fas fa-home"></i>Dashboard</a>
 								</li>
 								@section('breadcrumb')
-
 								@show
 							</ol>
 						</nav>
