@@ -36,7 +36,7 @@ class CategoriesController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $mensajes);
 
-         $validator = Validator::make($request->all(), $rules, $mensajes);
+         
         if ($validator->fails()):
             return back()->withErrors($validator)->with('message', 'Se ha producido un error',)->with('typealert', 'danger');
         else:
@@ -71,8 +71,6 @@ class CategoriesController extends Controller
             'icon.required' => 'Se requiere de un icono para la categoría'
 
         ];
-
-        $validator = Validator::make($request->all(), $rules, $mensajes);
 
          $validator = Validator::make($request->all(), $rules, $mensajes);
         if ($validator->fails()):

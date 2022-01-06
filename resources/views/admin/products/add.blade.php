@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="inside">
-			{!! Form::open(['url'=> '/admin/product/add']) !!}
+			{!! Form::open(['url'=> '/admin/product/add', 'files'=>true]) !!}
 			<div class="row">
 				<div class="col-md-6">
 					<label for="name">Nombre del producto:</label>
@@ -51,7 +51,7 @@
 				<div class="col-md-3">
 					<label for="name">Imagen destacada:</label>
 					<div class="custom-file">
-						{!! Form::file('img', ['class' => 'custom-file-input', 'id' => 'customFile']) !!}
+						{!! Form::file('img', ['class' => 'custom-file-input', 'id' => 'customFile', 'accept' => 'image/*' ]) !!}
 						<label class="custom-file-label" for="customFile">Choose file</label>
 
 					</div>
@@ -107,7 +107,7 @@
 								<i class="fas fa-percentage"></i>
 							</span>
 						</div>
-						{!! Form::number('discount', 0 , ['class' => 'form-control']) !!}
+						{!! Form::number('discount', 0.00 , ['class' => 'form-control']) !!}
 					</div>
 				</div>
 
