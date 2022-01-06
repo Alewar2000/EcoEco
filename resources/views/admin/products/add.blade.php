@@ -37,7 +37,15 @@
 				</div>
 
 				<div class="col-md-3">
-					<label for="name">Categoría:</label>
+					<label for="category">Categoría:</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">
+								<i class="fas fa-keyboard"></i>
+							</span>
+						</div>
+						{!! Form::select('category', $cats, 0, ['class' => 'custom-select']) !!}
+					</div>
 				</div>
 
 				<div class="col-md-3">
@@ -73,7 +81,21 @@
 								<i class="fas fa-tag"></i>
 							</span>
 						</div>
-						{!! Form::select('discount', ['0' => 'No', '1' => 'Si'], 0, ['class' => 'custom-select']) !!}
+						<div class="form-check">
+						<div>
+							{!! Form::radio('indiscount', '0', true, ['class' => 'form-check-label']) !!}
+							<label class="form-check-label" for="flexRadioDefault1">
+								No
+							</label>
+						</div>
+						
+						<div>
+							{!! Form::radio('indiscount', '1', ['class' => 'form-check-label']) !!}
+							<label class="form-check-label" for="flexRadioDefault2">
+								Si
+							</label>
+						</div>
+						</div>
 					</div>
 				</div>
 
@@ -96,6 +118,12 @@
 				<div class="col-md-12">
 					<label for="content">Descripción</label>
 					{!! Form::textarea('content', null, ['class' => 'form-control', 'id' => 'editor']) !!}
+				</div>
+			</div>
+
+			<div class="row mtop16">
+				<div class="col-md-12">
+					{!!	Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
 				</div>
 			</div>
 			{!!	Form::close() !!}
