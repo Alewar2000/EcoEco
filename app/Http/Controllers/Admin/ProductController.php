@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Category, App\Http\Models\Product;
+use App\Http\Models\Category, App\Http\Models\Product, App\Http\Models\PGallery;
 
 use Validator, Str, Config, Image;
 
@@ -94,7 +94,7 @@ class ProductController extends Controller
 
 
     public function getProductEdit($id){
-        $p = Product::find($id);
+        $p = Product::findOrFail($id);
         $cats = Category::where('module', '0')->pluck('name', 'id');
         $data = ['cats' => $cats, 'p' => $p];
         return view('admin.products.edit', $data);
@@ -123,7 +123,9 @@ class ProductController extends Controller
          if ($validator->fails()):
             return back()->withErrors($validator)->with('message', 'Se ha producido un error',)->with('typealert', 'danger')->withInput();
         else:
-            $product = Product::find($id);
+            $product = Product::findOrFail($id);
+            $ipp = $product->file_path;
+            $ip = $product->image;
             $product->status = e($request->input('status'));
             $product->name = e($request->input('name'));
             $product->category_id = $request->input('category');
@@ -156,11 +158,83 @@ class ProductController extends Controller
                         $constraint->upsize();
                     });
                     $img->save($upload_path.'/'.$path.'/t_'.$filename);
+                    unlink($upload_path.'/'.$ipp.'/'.$ip);
+                    unlink($upload_path.'/'.$ipp.'/t_'.$ip);
                 }
                 return back()->with('message', 'Actualizado con éxito')->with('typealert', 'success');
             }
 
         endif;
+    }
+
+
+    public function postProductGalleryAdd($id, Request $request){
+        $rules = [
+            'file_image' => 'required'
+        ];
+
+        $mensajes = [
+            'file_image.required' => 'Seleccione una imagen destacada'
+
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $mensajes);
+
+        if ($validator->fails()):
+            return back()->withErrors($validator)->with('message', 'Se ha producido un error',)->with('typealert', 'danger')->withInput();
+        else:
+            if ($request->hasFile('file_image')):
+                $path = '/'.date('Y-m-d');
+                $fileExt = trim($request->file('file_image')->getClientOriginalExtension());
+                $upload_path = Config::get('filesystems.disks.uploads.root');
+            //espacios en blando de los archivos
+                $name = Str::slug(str_replace($fileExt, '', $request->file('file_image')->getClientOriginalName()));
+            //No sobrescribir archivos
+                $filename = rand(1,999).'-'.$name.'.'.$fileExt;
+                $file_file = $upload_path.'/'.$path.'/'.$filename;
+
+
+                $g = new PGallery;
+                $g->product_id = $id;
+                $g->file_path = date('Y-m-d');
+                $g->file_name = $filename;
+
+                if ($g->save()) {
+                    if ($request->hasFile('file_image')) {
+                        $fl = $request->file_image->storeAs($path, $filename, 'uploads');
+                        $img = Image::make($file_file);
+                        $img->fit(256, 256, function($constraint){
+                            $constraint->upsize();
+                        });
+                        $img->save($upload_path.'/'.$path.'/t_'.$filename);
+                    }
+                    return back()->with('message', 'Imagen subida con éxito')->with('typealert', 'success');
+                }
+
+            endif;
+        
+        endif;
+
+    }
+
+
+
+    function getProductGalleryDelete($id, $gid){
+        $g = PGallery::findOrFail($gid);
+        $path = $g->file_path;
+        $file = $g->file_name;
+        $upload_path = Config::get('filesystems.disks.uploads.root');
+        if ($g->product_id != $id) {
+            return back()->with('message', 'La imagen no se ha podido eliminar')->with('typealert', 'danger');
+        }else{
+            if ($g->delete()) {
+                unlink($upload_path.'/'.$path.'/'.$file);
+                unlink($upload_path.'/'.$path.'/t_'.$file);
+                return back()->with('message', 'Imagen borrada con éxito')->with('typealert', 'success');
+                
+            }
+
+        }
     }
 
 

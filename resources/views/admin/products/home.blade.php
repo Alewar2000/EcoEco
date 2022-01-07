@@ -36,7 +36,7 @@
 				</thead>
 				<tbody>
 					@foreach($products as $p)
-					<tr>
+					<tr @if($p->status == "0") class="table-danger" @endif>
 						<td width="40">{{ $p->id }}</td>
 						<td width="64">
 							<a href="{{url('/uploads/'.$p->file_path.'/'.$p->image)}}" data-fancybox="gallery">
@@ -58,6 +58,10 @@
 						</td>
 					</tr>
 					@endforeach
+					<tr>
+						<td colspan="6">{!! $products->render() !!}</td>
+					</tr>
+
 				</tbody>
 				
 			</table>

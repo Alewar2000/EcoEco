@@ -112,4 +112,47 @@ h2,h3,h4,h5,ul,body,html
 		display inline-block
 		padding 8px 12px
 		
+
+.product_gallery
+	overflow hidden
+	.btn-submit
+		width 100%
+		display block
+		margin-right 1%
+		
+		a
+			width 100%
+			border 1px dashed #6666
+			text-align center
+			display block
+			font-size 1.5em
+			padding 12px
+			color #333
+			border-radius 4px
+			&:hover
+				background-color #80e87b
+				color #fff
+	.tumbs
+		overflow hidden
+		
+		.tumb
+			float left
+			width 48%
+			position relative
+			margin-top 16px
 			
+			a
+				background-color rgba(0,0,0,0.5)
+				display inline-block
+				border-radius 50%
+				position absolute
+				color #fff
+				padding 6px 10px
+				bottom 8px
+				right 8px
+			img
+				width 100%
+				border-radius 4px
+			&:nth-child(odd)
+				margin-right 4%
+				
