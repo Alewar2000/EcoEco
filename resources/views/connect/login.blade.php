@@ -7,7 +7,7 @@
 <div class="box box_login shadow p-3 mb-5 bg-body rounded">
 	<div class="header">
 		<a href="{{url('/')}}">
-			<img src="{{url('/static/images/logo.PNG')}}">
+			<img src="{{url('/static/images/logo2.PNG')}}">
 		</a>
 	</div>
 	<div class="inside">
