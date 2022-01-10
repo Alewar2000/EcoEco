@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@yield('title') - MADECMS</title>
+	<title>@yield('title') - Home</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="routeName" content="{{ Route::currentRouteName() }}">
@@ -11,15 +11,29 @@
 	<!-- CSS only -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+	
+
 	<link rel="stylesheet" href="{{ url('/static/css/style.css?v='.time()) }}">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/b0d8aefb17.js" crossorigin="anonymous"></script>
- 
+ 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	<!--<script src="{{ url('/static/libs/ckeditor/ckeditor.js') }}"></script> -->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="{{ url('/static/js/mdslider.js?v='.time()) }}"></script>
+
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 	<script src="{{ url('/static/js/site.js?v='.time()) }}"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 
 
@@ -120,7 +134,166 @@
 		</div>
 	</div>
 
+	<footer class="bg-dark text-center text-white mtop32">
+		<!-- Grid container -->
+		<div class="container p-4">
+			<!-- Section: Social media -->
+			<section class="mb-4">
+				<!-- Facebook -->
+				<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+				><i class="fab fa-facebook-f"></i
+				></a>
+
+				<!-- Twitter -->
+				<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+				><i class="fab fa-twitter"></i
+				></a>
+
+				<!-- Google -->
+				<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+				><i class="fab fa-google"></i
+				></a>
+
+				<!-- Instagram -->
+				<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+				><i class="fab fa-instagram"></i
+				></a>
+
+				<!-- Linkedin -->
+				<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+				><i class="fab fa-linkedin-in"></i
+				></a>
+
+				<!-- Github -->
+				<a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+				><i class="fab fa-github"></i
+				></a>
+			</section>
+			<!-- Section: Social media -->
+
+			<!-- Section: Form -->
+			<section class="">
+				<form action="">
+					<!--Grid row-->
+					<div class="row d-flex justify-content-center">
+						<!--Grid column-->
+						<div class="col-auto">
+							<p class="pt-2">
+								<strong>Suscribete a nuestro newsletter</strong>
+							</p>
+						</div>
+						<!--Grid column-->
+
+						<!--Grid column-->
+						<div class="col-md-5 col-12">
+							<!-- Email input -->
+							<div class="form-outline form-white mb-4">
+								<input type="email" id="form5Example21" class="form-control" />
+								<label class="form-label" for="form5Example21">Email address</label>
+							</div>
+						</div>
+						<!--Grid column-->
+
+						<!--Grid column-->
+						<div class="col-auto">
+							<!-- Submit button -->
+							<button type="submit" class="btn btn-outline-light mb-4">
+								Subscribe
+							</button>
+						</div>
+						<!--Grid column-->
+					</div>
+					<!--Grid row-->
+				</form>
+			</section>
+			<!-- Section: Form -->
+
+
+
+			<!-- Seccion: Links -->
+			<section class="">
+
+				<div class="row">
+
+					<div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Ayuda</h5>
+
+						<ul class="list-unstyled mb-0">
+							<li>
+								<a href="#!" class="text-white">Contáctanos</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Devoluciones</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Estado de la orden</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Abrir disputa</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Cuenta</h5>
+
+						<ul class="list-unstyled mb-0">
+							<li>
+								<a href="#!" class="text-white">Login</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Registro</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Ajustes de cuenta</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Mis ordenes</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Compañia</h5>
+
+						<ul class="list-unstyled mb-0">
+							<li>
+								<a href="#!" class="text-white">Sobre nosotros</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Encuentra una tienda</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Términos y condiciones</a>
+							</li>
+							<li>
+								<a href="#!" class="text-white">Sitemap</a>
+							</li>
+						</ul>
+					</div>
+
+					
+				</div>
+
+			</section>
+
+		</div>
+
+		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+			© 2022 Copyright:
+			<a class="text-white" href="http://ecoecoalewar.com/#">EcoEco</a>
+		</div>
+	</footer>
+
+
+
+
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+
+
+
+
 </body>
 </html>

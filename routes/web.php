@@ -11,6 +11,8 @@
 |
 */
 
+//HOME
+
 Route::get('/', 'ContentController@getHome');
 
 
@@ -28,3 +30,7 @@ Route::post('/reset', 'ConnectController@postReset')->name('reset');
 Route::get('/register', 'ConnectController@getRegister')->name('register');
 Route::post('/register', 'ConnectController@postRegister')->name('register');
 Route::get('/logout', 'ConnectController@getLogout')->name('logout');
+
+
+//Product
+Route::get('/product/{id}/{slug}', 'ProductController@getProduct');
