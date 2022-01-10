@@ -3,6 +3,8 @@
 @section('title', $product->name)
 
 @section('content')
+
+
 <div class="product_single">
 	<div class="container">
 		<div class="row">
@@ -30,7 +32,7 @@
 				<h2 class="title">{{ $product->name }}</h2>
 				<div>
 					<h4 class="description mtop32">
-						{{ $product->content}}
+						<p id="demo">{{ $product->content}}</p>
 					</h4>
 
 				</div>
