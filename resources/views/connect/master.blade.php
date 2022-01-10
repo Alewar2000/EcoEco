@@ -13,13 +13,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+	<div class="box_image">
+	<img src="https://bdaily.co.uk/images/uploads/7w1W2miLdSCT7A0O0U9iHYjDqAcPQTw6AATMrO9H.jpeg?s=a3c39697d9cbc44ad460b00cda11f797">
 
+	</div>
 	
 
 
 	@section('content')
 
-	hola mundo
+	
 
 
 	@show

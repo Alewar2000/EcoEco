@@ -3,6 +3,8 @@
 @section('title', 'Recuperar Contraseña')
 
 @section('content')
+
+
 <div class="box box_login shadow">
 	<div class="header">
 		<a href="{{ url('/') }}">

@@ -4,6 +4,8 @@
 
 @section('content')
 
+
+
 <div class="box box_register shadow p-3 mb-5 bg-body rounded">
 	<div class="header">
 		<a href="{{url('/')}}">
